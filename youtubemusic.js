@@ -25,10 +25,10 @@ refreshInfo=()=>{
 				data={
 					dontSave:true,
 					type:2,
-					name:title,
+					name:Netflix,
 					streamurl:"",
 					details:chrome.i18n.getMessage("activitySource").replace("%","Netflix"),
-					state:"Watching,
+					state:"title,
 					partycur:"",
 					partymax:""
 				}
