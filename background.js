@@ -31,9 +31,9 @@ chrome.runtime.onConnect.addListener(port=>{
 			{
 				youtubePort.postMessage({listen:false});
 			}
-			if(source=="youtubemusic"&&youtubeMusicPort!==undefined)
+			if(source=="netflix"&&netflixPort!==undefined)
 			{				
-				youtubeMusicPort.postMessage({listen:false});
+				netflixPort.postMessage({listen:false});
 			}
 		})
 		if(source=="off")
@@ -48,9 +48,9 @@ chrome.runtime.onConnect.addListener(port=>{
 		{
 			youtubePort.postMessage({listen:true})
 		}
-		else if(source=="youtubemusic"&&youtubeMusicPort!==undefined)
+		else if(source=="youtubemusic"&&netflixPort!==undefined)
 		{
-			youtubeMusicPort.postMessage({listen:true})
+			netflixPort.postMessage({listen:true})
 		}
 		else if(source=="soundcloud"&&soundcloudPort!==undefined)
 		{
@@ -83,26 +83,26 @@ chrome.runtime.onConnect.addListener(port=>{
 			youtubePort.postMessage({listen:true})
 		}
 	}
-	else if(port.name=="youtubemusic")
+	else if(port.name=="netflix")
 	{
 		if(youtubeMusicPort!==undefined)
 		{
-			youtubeMusicPort.postMessage({action:"close"})
+			netflixPort.postMessage({action:"close"})
 			youtubeMusicPort.disconnect()
 		}
-		youtubeMusicPort=port
-		console.info("YouTube Music port opened")
+		netflixPort=port
+		console.info("Netflix port opened")
 		port.onDisconnect.addListener(()=>{
 			console.info("YouTube Music port closed")
-			youtubeMusicPort=undefined
-			if(source=="youtubemusic")
+			netflixPort=undefined
+			if(source=="netflix")
 			{
 				resetActivity()
 			}
 		})
-		if(source=="youtubemusic"&&discordPort!==undefined)
+		if(source=="netflix"&&discordPort!==undefined)
 		{
-			youtubeMusicPort.postMessage({listen:true})
+			netflixPort.postMessage({listen:true})
 		}
 	}
 	else if(port.name=="soundcloud")
@@ -165,7 +165,7 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
 			sendResponse({
 				discord:discordPort!==undefined,
 				youtube:youtubePort!==undefined,
-				youtubemusic:youtubeMusicPort!==undefined,
+				youtubemusic:netflixPort!==undefined,
 				soundcloud:soundcloudPort!==undefined,
 				plex:plexPort!==undefined
 			})
@@ -197,20 +197,20 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
 				youtubePort.postMessage({listen:false})
 			}	
 
-			if(source=="youtubemusic")
+			if(source=="netflix")
 			{
-				if(youtubeMusicPort!==undefined)
+				if(netflixPort!==undefined)
 				{
-					youtubeMusicPort.postMessage({listen:true})
+					netflixPort.postMessage({listen:true})
 				}
 				else
 				{
 					resetActivity()
 				}
 			}
-			else if(youtubeMusicPort!==undefined)
+			else if(netflixPort!==undefined)
 			{
-				youtubeMusicPort.postMessage({listen:false})
+				netflixPort.postMessage({listen:false})
 			}
 
 			if(source=="soundcloud")
