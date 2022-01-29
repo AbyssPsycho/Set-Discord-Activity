@@ -1,4 +1,4 @@
-var portName="youtubemusic",
+var portName="netflix",
 lastPlaying=false,
 lastTitle=""
 refreshInfo=()=>{
@@ -27,8 +27,8 @@ refreshInfo=()=>{
 					type:2,
 					name:title,
 					streamurl:"",
-					details:chrome.i18n.getMessage("activitySource").replace("%","YouTube Music"),
-					state:"youtu.be/"+location.search.substr(location.search.indexOf("v=")+2,11),
+					details:chrome.i18n.getMessage("activitySource").replace("%","Netflix"),
+					state:"Watching,
 					partycur:"",
 					partymax:""
 				}
