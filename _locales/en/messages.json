@@ -24,25 +24,25 @@
 		"message": "Watching"
 	},
 	"activityTypeCompetingIn": {
-		"message": "Competing in"
+		"message": "Vibing To"
 	},
 	"activityTypeCustomStatus": {
 		"message": "Custom Status"
 	},
 	"activityUpdate": {
-		"message": "Set Discord Activity"
+		"message": "Update Status"
 	},
 	"appDesc": {
-		"message": "Set \"Playing\", \"Streaming\", \"Listening to\" & \"Watching\" in Discord to whatever you want."
+		"message": "Set \"Playing\", \"Streaming\", \"Listening to\", \"Watching\" & \"Vibing To\" in Discord to whatever you want."
 	},
 	"appName": {
-		"message": "Set Discord Activity"
+		"message": "Psy RPC"
 	},
 	"hintTwitchOnly": {
 		"message": "The stream link must start with https://twitch.tv/"
 	},
 	"loading": {
-		"message": "Set Discord Activity is loading..."
+		"message": "Psy RPC is loading..."
 	},
 	"noTabHelp1": {
 		"message": "If a tab is already open, reload it. If not, simply "
